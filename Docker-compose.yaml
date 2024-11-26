@@ -1,0 +1,17 @@
+version: '1.0'
+services:
+  userproducts_db:
+    image: postgres:16.2-alpine3.19
+    container_name: userproducts_db
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=userproducts_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}
